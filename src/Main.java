@@ -1,8 +1,10 @@
 import CourseTask.Exceptions.CheckValues;
 import CourseTask.Exceptions.WrongInputOutputException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -20,9 +22,8 @@ public class Main {
                 }
                 wordToCount.put(word, wordToCount.get(word) + 1);
             }
-            for (String word : wordToCount.keySet())
-            {
-                System.out.println(word + " - " + wordToCount.get(word));
+            for (String word : wordToCount.keySet()) {
+                System.out.println(Stream.of(word).limit(5).collect(Collectors.toCollection(ArrayList::new)) + " - " + wordToCount.get(word));
             }
 
         } catch (WrongInputOutputException e) {
