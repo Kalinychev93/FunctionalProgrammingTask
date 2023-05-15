@@ -25,7 +25,6 @@ public class Main {
                 }
                 wordCount.put(word, wordCount.get(word) + 1);
             }
-
             TreeMap<String, Integer> topTen = new TreeMap<>();
             topTen.putAll(wordCount);
             topTen.entrySet().stream()
@@ -38,9 +37,9 @@ public class Main {
                             LinkedHashMap::new
                     ))
                     .forEach((s, i) -> System.out.println(String.format("%s - %s", i, s)));
-
         } catch (WrongInputOutputException e) {
-            e.getMessage();
+            e.printStackTrace();
+
         }
 
 
